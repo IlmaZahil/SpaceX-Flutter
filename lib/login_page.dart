@@ -48,8 +48,6 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               Center(
-                // padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
-                // padding: const EdgeInsets.only(left: 140),
                 child: Text(
                   "LOGIN",
                   style: GoogleFonts.poppins(
