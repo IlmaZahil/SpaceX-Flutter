@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:provider/provider.dart';
-// import 'package:space_x/global.dart';
-// import 'package:space_x/visible_icon.dart';
+import 'package:space_x/card_list.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final model = Provider.of<VisibleIcon>(context);
-
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -26,7 +22,7 @@ class LoginPage extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                            colors: [Color(0xff36d1dc), Color(0xff5b86e5)],
+                            colors: [Color(0xffFBD3E9), Color(0xffBB377D)],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight),
                       ),
@@ -51,50 +47,21 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+              Center(
+                // padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+                // padding: const EdgeInsets.only(left: 140),
                 child: Text(
                   "LOGIN",
                   style: GoogleFonts.poppins(
-                      color: Colors.blue,
+                      color: Color(0xffBB377D),
                       fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25.0, left: 40, right: 30),
-                child: TextFiledWidget(
-                  // onChanged: onChanged,
-                  obscureText: true,
-                  hintText: "UserName",
-                  prefixIcon: Icons.account_circle_outlined,
-                  sufixIcon: Icons.ac_unit,
-                  // model.isValid ? Icons.check : null,
-                  // onChanged: (value) {
-                  //   // model.isValidUserName(value);
-                  // }
-                ),
+                child: Fileds(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25.0, left: 40, right: 30),
-                child: TextFiledWidget(
-                  // onChanged: (value) {
-                  //   // model.isValidUserName(value);
-                  // },
-                  obscureText: true,
-                  hintText: "Password",
-                  prefixIcon: Icons.lock_outlined,
-                  sufixIcon: Icons.remove_red_eye_outlined,
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25.0, left: 40, right: 30),
-                child: Center(
-                    child: ButtonWidget(title: "Login", hasBorder: true)),
-              )
             ],
           ),
         ),
@@ -103,86 +70,154 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-//TextFields
-class TextFiledWidget extends StatelessWidget {
-  // final Function onChanged;
-  final bool obscureText;
-  final String hintText;
-  final IconData prefixIcon;
-  final IconData sufixIcon;
+class Fileds extends StatefulWidget {
+  @override
+  _FiledsState createState() => _FiledsState();
+}
 
-  TextFiledWidget({
-    // required this.onChanged,
-    required this.obscureText,
-    required this.hintText,
-    required this.prefixIcon,
-    required this.sufixIcon,
-  });
+class _FiledsState extends State<Fileds> {
+  final _key = GlobalKey<FormState>();
+  bool invisible = true;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: TextField(
-        // onChanged: onChanged(),
-        obscureText: obscureText,
-        style: TextStyle(color: Colors.blue, fontSize: 14),
-        cursorColor: Colors.blue,
-        decoration: InputDecoration(
-            labelText: hintText,
-            prefixIcon: Icon(prefixIcon, size: 18, color: Colors.blue),
-            filled: true,
-            suffixIcon: Icon(sufixIcon, size: 18, color: Colors.transparent),
-            enabledBorder: UnderlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide.none,
+      child: Form(
+        key: _key,
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "UserName can not be empty";
+                } else if (value != "test") {
+                  return "Wrong UserName";
+                } else
+                  return null;
+              },
+              obscureText: false,
+              style: TextStyle(
+                color: Color(0xffBB377D),
+                fontSize: 14,
+              ),
+              cursorColor: Color(0xffBB377D),
+              decoration: InputDecoration(
+                labelText: "UserName",
+                prefixIcon: Icon(
+                  Icons.account_circle_outlined,
+                  size: 18,
+                  color: Color(0xffBB377D),
+                ),
+                filled: true,
+                enabledBorder: UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color(0xffBB377D),
+                  ),
+                ),
+                labelStyle: TextStyle(
+                  color: Color(0xffBB377D),
+                ),
+                focusColor: Color(0xffBB377D),
+              ),
             ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.blue),
+            SizedBox(height: 20),
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Password can not be empty";
+                } else if (value != "123456") {
+                  return "Wrong Password";
+                } else
+                  return null;
+              },
+              obscureText: invisible,
+              obscuringCharacter: "*",
+              style: TextStyle(
+                color: Color(0xffBB377D),
+                fontSize: 14,
+              ),
+              cursorColor: Color(0xffBB377D),
+              decoration: InputDecoration(
+                labelText: "Password",
+                prefixIcon: Icon(
+                  Icons.lock_outlined,
+                  size: 18,
+                  color: Color(0xffBB377D),
+                ),
+                suffixIcon: new GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      invisible = !invisible;
+                    });
+                  },
+                  child: Icon(
+                    invisible ? Icons.visibility : Icons.visibility_off,
+                    size: 18,
+                    color: Color(0xffBB377D),
+                  ),
+                ),
+                filled: true,
+                enabledBorder: UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color(0xffBB377D),
+                  ),
+                ),
+                labelStyle: TextStyle(
+                  color: Color(0xffBB377D),
+                ),
+                focusColor: Color(0xffBB377D),
+              ),
             ),
-            labelStyle: TextStyle(color: Colors.blue),
-            focusColor: Colors.blue),
-      ),
-    );
-  }
-}
-
-//Login Button
-class ButtonWidget extends StatelessWidget {
-  final String title;
-  final bool hasBorder;
-
-  ButtonWidget({required this.title, required this.hasBorder});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Ink(
-        decoration: BoxDecoration(
-          color: hasBorder ? Colors.blue : Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: hasBorder
-              ? Border.all(
-                  color: Colors.blue,
-                  width: 1.0,
-                )
-              : Border.fromBorderSide(BorderSide.none),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            height: 60.0,
-            child: Center(
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: hasBorder ? Colors.white : Colors.pink,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+            SizedBox(height: 40),
+            Material(
+              child: TextButton(
+                onPressed: () {
+                  if (_key.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CardList()),
+                    );
+                  }
+                },
+                child: Ink(
+                  decoration: BoxDecoration(
+                    color: Color(0xffBB377D),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        bottomRight: Radius.circular(25)),
+                    border: Border.fromBorderSide(BorderSide.none),
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      height: 60.0,
+                      width: 250,
+                      child: Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Color(0xffFBD3E9),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
