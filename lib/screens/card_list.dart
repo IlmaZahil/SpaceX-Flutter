@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:space_x/details.dart';
-
-import 'models/apidetails.dart';
+import 'package:space_x/screens/details.dart';
+import '../services/apidetails.dart';
+import 'package:dio/dio.dart';
 
 class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // getLinks();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffBB377D),

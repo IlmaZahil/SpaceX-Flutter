@@ -1,67 +1,72 @@
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:space_x/card_list.dart';
+import 'package:space_x/screens/card_list.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          width: size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  ClipPath(
-                    clipper: DrawClip(),
-                    child: Container(
-                      height: size.height / 2.4,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [Color(0xffFBD3E9), Color(0xffBB377D)],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight),
-                      ),
+      body: Container(
+        color: Color(0xffffdde1),
+        width: size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipPath(
+                  clipper: DrawClip(),
+                  child: Container(
+                    height: size.height / 2.4,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [Color(0xffFBD3E9), Color(0xffBB377D)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight),
                     ),
                   ),
-                  Center(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 50,
+                ),
+                Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Container(
+                        height: 250,
+                        width: 250,
+                        child: Image.asset(
+                          "assets/images/space.png",
+                          // fit: BoxFit.cover,
                         ),
-                        Container(
-                          height: 250,
-                          width: 250,
-                          child: Image.asset(
-                            "assets/images/space.png",
-                            // fit: BoxFit.cover,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    "LOGIN",
+                    style: GoogleFonts.poppins(
+                        color: Color(0xffBB377D),
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 25.0, left: 40, right: 30),
+                    child: Fileds(),
                   ),
                 ],
               ),
-              Center(
-                child: Text(
-                  "LOGIN",
-                  style: GoogleFonts.poppins(
-                      color: Color(0xffBB377D),
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25.0, left: 40, right: 30),
-                child: Fileds(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -178,6 +183,7 @@ class _FiledsState extends State<Fileds> {
             ),
             SizedBox(height: 40),
             Material(
+              color: Color(0xffffdde1),
               child: TextButton(
                 onPressed: () {
                   if (_key.currentState!.validate()) {

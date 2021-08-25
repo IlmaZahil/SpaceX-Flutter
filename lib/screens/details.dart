@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'models/apidetails.dart';
+import '../services/apidetails.dart';
 
 class Details extends StatelessWidget {
   @override
@@ -51,13 +51,6 @@ class Card extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(150),
                           bottomRight: Radius.circular(10)),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //     color: Colors.grey.shade200,
-                      //     blurRadius: 6,
-                      //     offset: Offset(0, 6),
-                      //   ),
-                      // ],
                     ),
                     child: Column(
                       children: [
@@ -133,28 +126,3 @@ class ScrollView extends StatelessWidget {
     );
   }
 }
-
-
-// SingleChildScrollView(
-//       scrollDirection: Axis.horizontal,
-//       child: Container(
-//         height: 300,
-//         width: 350,
-//         decoration: BoxDecoration(
-//           color: Color(0xffFBD3E9),
-//           borderRadius: BorderRadius.circular(20),
-//           // boxShadow: [
-//           //   BoxShadow(
-//           //     color: Colors.grey.shade200,
-//           //     blurRadius: 6,
-//           //     offset: Offset(0, 6),
-//           //   ),
-//           // ],
-//         ),
-//         child: Image.asset(
-//           "assets/images/img2.png",
-//           height: 500,
-//           width: 500,
-//         ),
-//       ),
-//     );
