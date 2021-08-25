@@ -4,15 +4,15 @@ A new Flutter project.
 
 ## Getting Started
 
-<img width="369" alt="Screenshot 2021-08-24 at 20 52 49" src="https://user-images.githubusercontent.com/66563618/130726123-1d8e56b5-e43f-488f-938c-00eef633adce.png">
+<img width="300" alt="Screenshot 2021-08-24 at 20 52 49" src="https://user-images.githubusercontent.com/66563618/130726123-1d8e56b5-e43f-488f-938c-00eef633adce.png">
 
 <h2>UserName :- **test** / Password :- **123456** </h2>
 <br>
 
-<img width="386" alt="Screenshot 2021-08-24 at 20 52 56" src="https://user-images.githubusercontent.com/66563618/130726315-9704b447-2ad4-4b31-99ab-da26482e7e22.png">
+<img width="300" alt="Screenshot 2021-08-24 at 20 52 56" src="https://user-images.githubusercontent.com/66563618/130726315-9704b447-2ad4-4b31-99ab-da26482e7e22.png">
 <br>
 
-<img width="363" alt="Screenshot 2021-08-24 at 20 53 26" src="https://user-images.githubusercontent.com/66563618/130726362-0e2cc1d2-7f1b-4f8c-96b5-300d985bc97a.png">
+<img width="300" alt="Screenshot 2021-08-24 at 20 53 26" src="https://user-images.githubusercontent.com/66563618/130726362-0e2cc1d2-7f1b-4f8c-96b5-300d985bc97a.png">
 <br>
 
 This project is a starting point for a Flutter application.
