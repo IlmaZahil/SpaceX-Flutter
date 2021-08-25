@@ -9,7 +9,7 @@ class LoginPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        color: Color(0xffffdde1),
+        color: Color(0xffADD1FA),
         width: size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Color(0xffFBD3E9), Color(0xffBB377D)],
+                          colors: [Color(0xffADD1FA), Color(0xff336FF3)],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight),
                     ),
@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
                   Text(
                     "LOGIN",
                     style: GoogleFonts.poppins(
-                        color: Color(0xffBB377D),
+                        color: Color(0xff336FF3),
                         fontSize: 30,
                         fontWeight: FontWeight.bold),
                   ),
@@ -100,16 +100,16 @@ class _FiledsState extends State<Fileds> {
               },
               obscureText: false,
               style: TextStyle(
-                color: Color(0xffBB377D),
+                color: Color(0xff336FF3),
                 fontSize: 14,
               ),
-              cursorColor: Color(0xffBB377D),
+              cursorColor: Color(0xff336FF3),
               decoration: InputDecoration(
                 labelText: "UserName",
                 prefixIcon: Icon(
                   Icons.account_circle_outlined,
                   size: 18,
-                  color: Color(0xffBB377D),
+                  color: Color(0xff336FF3),
                 ),
                 filled: true,
                 enabledBorder: UnderlineInputBorder(
@@ -119,13 +119,13 @@ class _FiledsState extends State<Fileds> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: Color(0xffBB377D),
+                    color: Color(0xff336FF3),
                   ),
                 ),
                 labelStyle: TextStyle(
-                  color: Color(0xffBB377D),
+                  color: Color(0xff336FF3),
                 ),
-                focusColor: Color(0xffBB377D),
+                focusColor: Color(0xff336FF3),
               ),
             ),
             SizedBox(height: 20),
@@ -141,16 +141,16 @@ class _FiledsState extends State<Fileds> {
               obscureText: invisible,
               obscuringCharacter: "*",
               style: TextStyle(
-                color: Color(0xffBB377D),
+                color: Color(0xff336FF3),
                 fontSize: 14,
               ),
-              cursorColor: Color(0xffBB377D),
+              cursorColor: Color(0xff336FF3),
               decoration: InputDecoration(
                 labelText: "Password",
                 prefixIcon: Icon(
                   Icons.lock_outlined,
                   size: 18,
-                  color: Color(0xffBB377D),
+                  color: Color(0xff336FF3),
                 ),
                 suffixIcon: new GestureDetector(
                   onTap: () {
@@ -161,7 +161,7 @@ class _FiledsState extends State<Fileds> {
                   child: Icon(
                     invisible ? Icons.visibility : Icons.visibility_off,
                     size: 18,
-                    color: Color(0xffBB377D),
+                    color: Color(0xff336FF3),
                   ),
                 ),
                 filled: true,
@@ -171,19 +171,17 @@ class _FiledsState extends State<Fileds> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Color(0xffBB377D),
-                  ),
+                  borderSide: BorderSide(color: Color(0xff336FF3)),
                 ),
                 labelStyle: TextStyle(
-                  color: Color(0xffBB377D),
+                  color: Color(0xff336FF3),
                 ),
-                focusColor: Color(0xffBB377D),
+                focusColor: Color(0xff336FF3),
               ),
             ),
             SizedBox(height: 40),
             Material(
-              color: Color(0xffffdde1),
+              color: Color(0xffADD1FA),
               child: TextButton(
                 onPressed: () {
                   if (_key.currentState!.validate()) {
@@ -195,7 +193,7 @@ class _FiledsState extends State<Fileds> {
                 },
                 child: Ink(
                   decoration: BoxDecoration(
-                    color: Color(0xffBB377D),
+                    color: Color(0xff336FF3),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         bottomRight: Radius.circular(25)),
@@ -210,7 +208,7 @@ class _FiledsState extends State<Fileds> {
                         child: Text(
                           "Login",
                           style: TextStyle(
-                            color: Color(0xffFBD3E9),
+                            color: Color(0xffADD1FA),
                             fontWeight: FontWeight.w600,
                             fontSize: 20.0,
                           ),
