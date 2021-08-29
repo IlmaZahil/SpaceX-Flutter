@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-<img width="300" alt="Screenshot 2021-08-24 at 20 52 49" src="https://user-images.githubusercontent.com/66563618/130726123-1d8e56b5-e43f-488f-938c-00eef633adce.png">
+<img width="300" alt="Screenshot 2021-08-25 at 21 59 54" src="https://user-images.githubusercontent.com/66563618/131256464-77a48033-98c7-412c-858e-dc0c7cf61734.png">
 
 <h2>UserName :- **test** / Password :- **123456** </h2>
 <br>
