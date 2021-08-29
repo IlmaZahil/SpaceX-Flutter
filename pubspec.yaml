@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.7.0 < 3.0.0"
 
 dependencies:
   flutter:
@@ -33,6 +33,10 @@ dependencies:
   dio: ^4.0.0
   http: ^0.13.3
   get: ^4.3.8
+  # flutter_fadein: ^2.0.0
+  # simple_animations: ^3.1.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

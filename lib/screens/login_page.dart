@@ -36,8 +36,8 @@ class LoginPage extends StatelessWidget {
                         height: 50,
                       ),
                       Container(
-                        height: 250,
-                        width: 250,
+                        height: size.height / 4,
+                        width: size.height / 4,
                         child: Image.asset(
                           "assets/images/space.png",
                           // fit: BoxFit.cover,
@@ -91,7 +91,7 @@ class _FiledsState extends State<Fileds> {
           children: <Widget>[
             TextFormField(
               validator: (value) {
-                if (value!.isEmpty) {
+                if (value.isEmpty) {
                   return "UserName can not be empty";
                 } else if (value != "test") {
                   return "Wrong UserName";
@@ -131,7 +131,7 @@ class _FiledsState extends State<Fileds> {
             SizedBox(height: 20),
             TextFormField(
               validator: (value) {
-                if (value!.isEmpty) {
+                if (value.isEmpty) {
                   return "Password can not be empty";
                 } else if (value != "123456") {
                   return "Wrong Password";
@@ -184,7 +184,7 @@ class _FiledsState extends State<Fileds> {
               color: Color(0xffADD1FA),
               child: TextButton(
                 onPressed: () {
-                  if (_key.currentState!.validate()) {
+                  if (_key.currentState.validate()) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => CardList()),

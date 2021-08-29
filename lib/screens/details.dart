@@ -50,8 +50,6 @@ class Details extends StatelessWidget {
       body: Card(),
     );
   }
-
-  static fromJson(item) {}
 }
 
 class Card extends StatelessWidget {
@@ -93,8 +91,8 @@ class Card extends StatelessWidget {
                               fontSize: 22,
                               fontWeight: FontWeight.bold),
                         ),
-                        Image.asset(
-                          "assets/images/space.png",
+                        Image.network(
+                          'https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png',
                           height: 200,
                           width: 200,
                         ),
@@ -130,50 +128,62 @@ class ScrollView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      child: ListView.builder(
-        // itemCount: details.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.only(
-              left: index == 0 ? 20 : 0,
-              right: 20,
-            ),
-            height: 300,
-            width: 350,
-            decoration: BoxDecoration(
-              color: Color(0xffADD1FA),
-              borderRadius: BorderRadius.circular(20),
-            ),
+        height: 300,
+        child: Container(
+          child: FutureBuilder(
+            future: getApiData(),
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return Container(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                    // Text('loading')
+                  ),
+                );
+              } else
+                return ListView.builder(
+                  // itemCount: snapshot.data.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, i) {
+                    return Container(
+                      margin: EdgeInsets.only(
+                        left: i == 0 ? 20 : 0,
+                        right: 20,
+                      ),
+                      height: 300,
+                      width: 350,
+                      decoration: BoxDecoration(
+                        color: Color(0xffADD1FA),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(100.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              snapshot.data[i].launch_year,
+                              style: GoogleFonts.poppins(
+                                color: Color(0xff336FF3),
+                                fontSize: 20,
+                              ),
+                            ),
+                            Image.network(
+                              snapshot.data[i].mission_patch,
+                              height: 50,
+                              width: 50,
+                            ),
+                          ],
+                        ),
+                      ),
 
-            // child: Image.asset(
-            //   details[index]['image'],
-            // ),
-
-            child: Expanded(
-              child: FutureBuilder<List<Spacex>>(
-                future: DetailsApiServices().fetchDetails(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(child: CircularProgressIndicator());
-                  } else {
-                    return ListView.builder(
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(snapshot.data![index].flight_number),
-                          subtitle: Text(snapshot.data![index].mission_name),
-                        );
-                      },
+                      // child: Image.asset(
+                      //   details[index]['image'],
+                      // ),
                     );
-                  }
-                },
-              ),
-            ),
-          );
-        },
-      ),
-    );
+                  },
+                );
+            },
+          ),
+        ));
   }
 }
