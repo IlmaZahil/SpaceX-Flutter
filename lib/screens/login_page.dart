@@ -104,7 +104,9 @@ class _FiledsState extends State<Fileds> {
                 fontSize: 14,
               ),
               cursorColor: Color(0xff336FF3),
+              // autofocus: false,
               decoration: InputDecoration(
+                fillColor: Color(0xff7EBBFF),
                 labelText: "UserName",
                 prefixIcon: Icon(
                   Icons.account_circle_outlined,
@@ -146,6 +148,7 @@ class _FiledsState extends State<Fileds> {
               ),
               cursorColor: Color(0xff336FF3),
               decoration: InputDecoration(
+                fillColor: Color(0xff7EBBFF),
                 labelText: "Password",
                 prefixIcon: Icon(
                   Icons.lock_outlined,
@@ -179,7 +182,19 @@ class _FiledsState extends State<Fileds> {
                 focusColor: Color(0xff336FF3),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "Forgot Password?",
+                style: TextStyle(
+                  color: Color(0xff336FF3),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.0,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             Material(
               color: Color(0xffADD1FA),
               child: TextButton(
@@ -217,6 +232,30 @@ class _FiledsState extends State<Fileds> {
                     ),
                   ),
                 ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 37.0),
+              child: Row(
+                children: [
+                  Text(
+                    "Dont't have an account? ",
+                    style: TextStyle(
+                      color: Color(0xff336FF3),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15.0,
+                    ),
+                  ),
+                  Text(
+                    "Register Now",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

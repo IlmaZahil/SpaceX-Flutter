@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:space_x/screens/menu.dart';
+import 'package:space_x/screens/notifications.dart';
 import 'package:space_x/screens/details.dart';
-import 'package:space_x/screens/login_page.dart';
 import 'package:space_x/services/apidetails.dart';
+
+var scaffoldKey = GlobalKey<ScaffoldState>();
 
 class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // getApiData();
     return Scaffold(
+      key: scaffoldKey,
       extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -22,12 +25,13 @@ class CardList extends StatelessWidget {
         brightness: Brightness.dark,
         leading: IconButton(
           color: Color(0xff336FF3),
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.menu_outlined),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
-            );
+            scaffoldKey.currentState.openDrawer();
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => LoginPage()),
+            // );
           },
         ),
         backgroundColor: Color(0xffADD1FA),
@@ -42,10 +46,21 @@ class CardList extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: Icon(Icons.favorite_outlined, color: Color(0xff336FF3)),
+            child: IconButton(
+              icon: Icon(
+                Icons.notifications_active_outlined,
+                color: Color(0xff336FF3),
+              ),
+              onPressed: () {
+                scaffoldKey.currentState.openEndDrawer();
+              },
+            ),
           )
         ],
       ),
+      endDrawer: Notifications(),
+      drawer: Menu(),
+      // ),
       body: Card(),
     );
   }

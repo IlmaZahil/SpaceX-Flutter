@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:space_x/models/api_model.dart';
 import 'package:space_x/screens/card_list.dart';
+import 'package:space_x/screens/menu.dart';
+import 'package:space_x/screens/notifications.dart';
 
 import '../services/apidetails.dart';
 
@@ -9,6 +10,7 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -21,12 +23,13 @@ class Details extends StatelessWidget {
         brightness: Brightness.dark,
         leading: IconButton(
           color: Color(0xff336FF3),
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.menu_outlined),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => CardList()),
-            );
+            scaffoldKey.currentState.openDrawer();
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => LoginPage()),
+            // );
           },
         ),
         backgroundColor: Color(0xffADD1FA),
@@ -40,13 +43,20 @@ class Details extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: Icon(
-              Icons.favorite_outlined,
-              color: Color(0xff336FF3),
+            child: IconButton(
+              icon: Icon(
+                Icons.notifications_active_outlined,
+                color: Color(0xff336FF3),
+              ),
+              onPressed: () {
+                scaffoldKey.currentState.openEndDrawer();
+              },
             ),
-          )
+          ),
         ],
       ),
+      endDrawer: Notifications(),
+      drawer: Menu(),
       body: Card(),
     );
   }
