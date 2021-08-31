@@ -11,14 +11,10 @@ class Menu extends StatelessWidget {
       data: Theme.of(context).copyWith(
         canvasColor: Color(0xffADD1FA),
       ),
-      // child: ClipPath(
-      // clipper: CPath(),
       child: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            // Padding(
-            // padding: const EdgeInsets.only(left: 30.0),
             DrawerHeader(
               child: Container(
                 child: Stack(

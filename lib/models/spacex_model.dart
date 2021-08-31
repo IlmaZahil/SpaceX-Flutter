@@ -1,5 +1,4 @@
 class Spacex {
-  // Links links;
   String launch_year;
   String mission_name;
   String static_fire_date_utc;
@@ -8,7 +7,6 @@ class Spacex {
   String mission_patch_small;
 
   Spacex(
-    // required this.links,
     this.launch_year,
     this.mission_name,
     this.static_fire_date_utc,
